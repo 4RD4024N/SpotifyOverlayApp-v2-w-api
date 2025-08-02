@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpotifyOverlayAppwapi", "SpotifyOverlayAppwapi\SpotifyOverlayAppwapi.csproj", "{B7BD6430-6CB7-4AB4-8FC6-18FDA0CB3F48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7BD6430-6CB7-4AB4-8FC6-18FDA0CB3F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BD6430-6CB7-4AB4-8FC6-18FDA0CB3F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BD6430-6CB7-4AB4-8FC6-18FDA0CB3F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BD6430-6CB7-4AB4-8FC6-18FDA0CB3F48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36C822AB-B0CF-4FE0-9102-09043C70EE6E}
+	EndGlobalSection
+EndGlobal

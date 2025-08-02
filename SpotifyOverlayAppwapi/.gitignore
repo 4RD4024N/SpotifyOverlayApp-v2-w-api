@@ -1,0 +1,28 @@
+# .NET/WPF i�in .gitignore
+# Build ve paket dosyalar�
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio dosyalar�
+.vs/
+
+# NuGet paketleri
+*.nupkg
+packages/
+
+# Debug ve Release klas�rleri
+Debug/
+Release/
+
+# Di�er
+*.log
+*.DS_Store
+*.idea/
+*.vscode/
+
+# Ortam dosyas�
+.env
