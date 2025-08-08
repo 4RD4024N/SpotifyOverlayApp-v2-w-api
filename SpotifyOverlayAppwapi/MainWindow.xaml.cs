@@ -222,10 +222,8 @@ namespace SpotifyOverlay
         private async void PlayPause_Click(object sender, RoutedEventArgs e)
         {
             await SpotifyAPI.TogglePlayPauseAsync(SpotifyAuthManager.AccessToken);
-            AnimateButtonBounce(playPauseButton);
+            // AnimateButtonBounce(playPauseButton); // Animasyonu kaldırdık
             await UpdateTrackInfo();
-
-
         }
         
         private async void Next_Click(object sender, RoutedEventArgs e)

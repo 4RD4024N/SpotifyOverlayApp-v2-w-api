@@ -2,6 +2,7 @@
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SpotifyOverlay
 {
@@ -19,6 +20,11 @@ namespace SpotifyOverlay
     public static class SpotifyAPI
     {
         private static readonly HttpClient client = new();
+
+        public static bool IsSpotifyRunning()
+        {
+            return Process.GetProcessesByName("Spotify").Length > 0;
+        }
 
         public static async Task TogglePlayPauseAsync(string accessToken)
         {
@@ -48,15 +54,22 @@ namespace SpotifyOverlay
 
         public static async Task<TrackInfo> GetCurrentlyPlayingAsync(string accessToken)
         {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            if (!IsSpotifyRunning())
+                return null;
 
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var response = await client.GetAsync("https://api.spotify.com/v1/me/player/currently-playing");
-            if (!response.IsSuccessStatusCode) return null;
+            if (!response.IsSuccessStatusCode)
+                return null;
 
             var json = await response.Content.ReadAsStringAsync();
+            if (string.IsNullOrWhiteSpace(json))
+                return null;
+
             var root = JsonSerializer.Deserialize<JsonElement>(json);
 
-            if (!root.TryGetProperty("item", out var item)) return null;
+            if (!root.TryGetProperty("item", out var item))
+                return null;
 
             var title = item.GetProperty("name").GetString();
             var artist = item.GetProperty("artists")[0].GetProperty("name").GetString();
